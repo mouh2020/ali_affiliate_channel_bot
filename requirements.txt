@@ -3,6 +3,5 @@ charset-normalizer==3.3.0
 idna==3.4
 loguru==0.7.2
 pyTelegramBotAPI==4.14.0
-python-aliexpress-api==3.0.0
 requests==2.31.0
 urllib3==2.0.6
