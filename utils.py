@@ -41,6 +41,6 @@ def build_message(product: models.Product) :
     message = file.read()
     message = message.replace("title",product.product_title)
     message = message.replace("link",product.promotion_link)
-    message = message.replace("price",product.sale_price)
+    message = message.replace("price",product.target_sale_price)
     file.close()
     return message
