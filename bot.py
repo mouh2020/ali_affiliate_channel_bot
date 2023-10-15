@@ -22,9 +22,21 @@ def file_operations(data=None):
 # Handle '/start' and '/help'
 @bot.message_handler(commands=['help', 'start'])
 def send_welcome(message):
-    bot.reply_to(message, """بوت التحكم في إرسال العروض إلى قناتك \n\n  لتحديد وقت النشر أرسل time ثم الوقت \n\n  لإرسال التصنيفات أرسلها على الشكل 25,151,159 -\n-""")
+    bot.reply_to(message, """أهلا بك في البوت الخاص بإرسال العروض إلى القناة 
 
+لتغيير الوقت يرجى إرساله على الشكل  time:30
 
+لتعيير الأصناف يرجى إرسالها على الشكل  cat:3,7,52
+
+لتغيير تصميم الرسالة يرجى إرسالها على الشكل design:message""")
+
+@bot.message_handler(commands=['info'])
+def info_message(message):
+    data = file_operations()
+    text = f"الوقت : {data['time']}\n\n الأصناف : {data['categories']}\n\n تصميم الرسالة : \n {data['message']}"
+    bot.reply_to(message,
+                 text)
+    
 # Handle all other messages with content_type 'text' (content_types defaults to ['text'])
 @bot.message_handler(func=lambda message: True)
 def echo_message(message):
